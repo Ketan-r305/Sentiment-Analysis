@@ -81,7 +81,7 @@ This data contains information about the product from **Amazon** , its price, re
 **Target Variable**
 <!-- 4. `MEDV`: median value of owner-occupied homes -->
 
- positively_rated [target variable for prediction]
+7. positively_rated [target variable for prediction]
 
         0 = Negatively Rated
 
