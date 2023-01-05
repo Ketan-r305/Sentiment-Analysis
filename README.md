@@ -1,5 +1,5 @@
 # Model Evaluation and Validation
-## Project: Predicting Housing Maintenance Fines
+## Project: Sentiment Analysis
 
 ### Install
 
@@ -37,9 +37,9 @@ environment.yml contains the required production environment for the project.
 
 ### Results
 
-Performance of Logistic Regression model on the dataset based on autograder is the best.
+Performance of Logistic Regression model with tf-idf vectorizer gives the best score.
 
-roc_auc_score for the trained model is 0.75.
+roc_auc_score for the trained model is 0.91.
 
 
 <!-- ### Run
@@ -62,66 +62,27 @@ This will open the Jupyter Notebook software and project file in your browser. -
 
 ### Data
 
-The Michigan Data Science Team ([MDST](http://midas.umich.edu/mdst/)) and the Michigan Student Symposium for Interdisciplinary Statistical Sciences ([MSSISS](https://sites.lsa.umich.edu/mssiss/)) have partnered with the City of Detroit to help solve one of the most pressing problems facing Detroit - blight. [Blight violations](http://www.detroitmi.gov/How-Do-I/Report/Blight-Complaint-FAQs) are issued by the city to individuals who allow their properties to remain in a deteriorated condition. Every year, the city of Detroit issues millions of dollars in fines to residents and every year, many of these fines remain unpaid. Enforcing unpaid blight fines is a costly and tedious process, so the city wants to know: how can we increase blight ticket compliance?
+This data contains information about the product from **Amazon** , its price, reviews, ratings etc. We divide the whole dataset into two parts positive review and negative review based on ratings which will be our target to predict.
 
 **Features**
 
-1. `ticket_id`: unique identifier for tickets
+1. `Product Name`: Name of the product
 
-2. `agency_name`: Agency that issued the ticket
+2. `Brand Name`: Name of the mobile phones brand
 
-3. `inspector_name`: Name of inspector that issued the ticket
+3. `Price`: Price of the product
 
-4. `violator_name`: Name of the person/organization that the ticket was issued to
+4. `Rating`: Ratings(1-5)
 
-5. `violation_street_number`, `violation_street_name`, `violation_zip_code`: Address where the violation occurred
+5. `Reviews`: Reviews of the product by customers
 
-6. `mailing_address_str_number`, `mailing_address_str_name`, `city`, `state`, `zip_code`, `non_us_str_code`, `country`: Mailing address of the violator
-
-7. `ticket_issued_date`: Date and time the ticket was issued
-
-8. `hearing_date`: Date and time the violator's hearing was scheduled
-
-9. `violation_code`, `violation_description`: Type of violation
-
-10. `disposition`: Judgment and judgement type
-
-11. `fine_amount`: Violation fine amount, excluding fees
-
-12. `admin_fee`: $20 fee assigned to responsible judgments
-
-13. `state_fee`: $10 fee assigned to responsible judgments
-
-14. `late_fee`: 10% fee assigned to responsible judgments
-
-15. `discount_amount`: discount applied, if any
-
-16. `clean_up_cost`: DPW clean-up or graffiti removal cost
-
-17. `judgment_amount`: Sum of all fines and fees
-
-18. `grafitti_status`: Flag for graffiti violations
-
-19. `payment_amount`: Amount paid, if any
-
-20. `payment_date`: Date payment was made, if it was received
-
-21. `payment_status`: Current payment status as of Feb 1 2017
-
-22. `balance_due`: Fines and fees still owed
-
-23. `collection_status`: Flag for payments in collections
-
+6. `Review Votes`: Review votes given by customer
 
 **Target Variable**
 <!-- 4. `MEDV`: median value of owner-occupied homes -->
 
-24. compliance [target variable for prediction]
+ positively_rated [target variable for prediction]
 
-        Null = Not responsible
+        0 = Negatively Rated
 
-        0 = Responsible, non-compliant
-
-        1 = Responsible, compliant
-
-        compliance_detail - More information on why each ticket was marked compliant or non-compliant
+        1 = Positively Rated
